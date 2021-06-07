@@ -25,7 +25,7 @@ import com.devsuperior.bds04.services.exception.EntityNotFoundExceptions;
 
 @Service
 public class UserService {
-
+	
 	@Autowired
 	private UserRepository repository;
 
@@ -90,6 +90,5 @@ public class UserService {
 			entity.getRoles().add(role);
 		}
 	}
-
 
 }

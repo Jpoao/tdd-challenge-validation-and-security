@@ -19,7 +19,6 @@ public class City {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotEmpty(message = "Nome vazio")
 	private String name;
 	
 	@OneToMany(mappedBy = "city")

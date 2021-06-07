@@ -2,6 +2,8 @@ package com.devsuperior.bds04.controller;
 
 import java.net.URI;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -30,7 +32,7 @@ public class EventController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<EventDTO> insert(@RequestBody EventDTO newEvent){
+	public ResponseEntity<EventDTO> insert(@Valid @RequestBody EventDTO newEvent){
 		EventDTO eventDTO = service.insert(newEvent);
 		URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("{/id}").buildAndExpand(eventDTO.getId())
 				.toUri();

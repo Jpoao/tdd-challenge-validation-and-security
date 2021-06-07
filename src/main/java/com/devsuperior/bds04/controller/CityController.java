@@ -3,6 +3,8 @@ package com.devsuperior.bds04.controller;
 import java.net.URI;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,7 +31,7 @@ public class CityController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<CityDTO> delete(@RequestBody CityDTO newCity) {
+	public ResponseEntity<CityDTO> delete(@Valid @RequestBody CityDTO newCity) {
 		newCity = service.insert(newCity);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newCity.getId())
 				.toUri();

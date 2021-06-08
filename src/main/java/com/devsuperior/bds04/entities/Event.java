@@ -9,7 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.Future;
 import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -22,7 +21,7 @@ public class Event {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotEmpty(message = "Nome vazio")
+	@NotEmpty(message = "Campo Requerido")
 	private String name;
 	
 	@FutureOrPresent(message = "Data não pode ser passada")
@@ -30,9 +29,9 @@ public class Event {
 	
 	private String url;
 	
-	@NotNull(message = "Cidade não pode ser nula")
 	@ManyToOne
 	@JoinColumn(name = "city_id")
+	@NotNull(message = "Campo Requerido")
 	private City city;
 	
 	public Event() {
